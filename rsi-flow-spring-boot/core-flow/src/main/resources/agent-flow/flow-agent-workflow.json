@@ -1,0 +1,24 @@
+{
+  "id": "FLOW_AGENT_WORKFLOW",
+  "type": "flow",
+  "name": "Bounded agent collaboration",
+  "results": [
+    { "name": "agentResponse", "type": "Object" }
+  ],
+  "nodes": [
+    {
+      "id": "AGENT_WORKFLOW_ROUND",
+      "type": "event",
+      "reference": "AGENT_WORKFLOW_ROUND",
+      "results": [
+        { "name": "agentDone", "type": "Boolean" },
+        { "name": "agentResponse", "type": "Object" }
+      ]
+    }
+  ],
+  "routes": [
+    { "source": "start", "target": "AGENT_WORKFLOW_ROUND" },
+    { "source": "AGENT_WORKFLOW_ROUND", "target": "AGENT_WORKFLOW_ROUND", "condition": "agentDone == false", "maxIterations": 2 },
+    { "source": "AGENT_WORKFLOW_ROUND", "target": "end", "condition": "default" }
+  ]
+}

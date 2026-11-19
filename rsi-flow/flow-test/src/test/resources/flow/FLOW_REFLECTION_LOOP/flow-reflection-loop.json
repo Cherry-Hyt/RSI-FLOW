@@ -1,0 +1,30 @@
+{
+  "id": "FLOW_REFLECTION_LOOP",
+  "type": "flow",
+  "name": "Bounded reflection loop",
+  "params": [
+    { "name": "draft", "type": "String" },
+    { "name": "goal", "type": "String" }
+  ],
+  "results": [
+    { "name": "draft", "type": "String" }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_REFLECTION_REVISE",
+      "type": "event",
+      "reference": "FLOW_REFLECTION_REVISE",
+      "params": [
+        { "name": "draft", "type": "String" }
+      ],
+      "results": [
+        { "name": "draft", "type": "String" }
+      ]
+    }
+  ],
+  "routes": [
+    { "source": "start", "target": "FLOW_REFLECTION_REVISE" },
+    { "source": "FLOW_REFLECTION_REVISE", "target": "FLOW_REFLECTION_REVISE", "condition": "draft != goal", "maxIterations": 2 },
+    { "source": "FLOW_REFLECTION_REVISE", "target": "end", "condition": "default" }
+  ]
+}

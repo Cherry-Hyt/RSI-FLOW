@@ -1,0 +1,45 @@
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #24343b; }
+body { background: #f3f6f5; }
+button, input, textarea { font: inherit; }
+.workspace { min-height: 100vh; }
+.workspace-header { min-height: 76px; padding: 15px 28px; display: flex; align-items: center; justify-content: space-between; background: #fff; border-bottom: 1px solid #d9e2e1; }
+.workspace-header h1 { font-size: 21px; margin: 0 0 2px; font-weight: 650; }
+.workspace-header span { color: #62747a; font-size: 12px; }
+.workspace-body { display: grid; grid-template-columns: minmax(330px, 400px) minmax(0, 1fr); min-height: calc(100vh - 76px); }
+.configuration { padding: 22px 22px 32px; border-right: 1px solid #d9e2e1; background: #fff; overflow-y: auto; max-height: calc(100vh - 76px); }
+h2 { font-size: 15px; margin: 0 0 16px; font-weight: 650; }
+.configuration label { display: block; color: #56686c; font-size: 12px; font-weight: 600; min-width: 0; }
+.configuration input:not([type='number']), .configuration textarea { display: block; width: 100%; margin-top: 6px; border: 1px solid #d5dfe0; border-radius: 4px; padding: 8px 10px; color: #24343b; background: #fff; font-size: 13px; outline-color: #319281; }
+.configuration .wide-field { margin-bottom: 14px; }
+.configuration .budget { display: flex; align-items: center; gap: 14px; margin: 0 0 23px; }
+.section-title { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e1e8e7; padding-top: 18px; margin: 0 0 12px; }
+.section-title h2 { margin: 0; }
+.section-title small { color: #77898d; font-size: 12px; font-weight: 400; }
+.agent-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 10px; margin-bottom: 20px; }
+.agent-fields label:nth-child(2), .agent-fields label:nth-child(4) { grid-column: span 2; }
+.worker { border: 1px solid #dce5e5; border-radius: 5px; padding: 12px 12px 0; margin-bottom: 12px; background: #fbfdfc; }
+.worker-heading { display: flex; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 8px; }
+.submit-area { position: sticky; bottom: -32px; padding: 14px 0 20px; background: #fff; }
+.submit-area .ant-btn-primary { background: #167a68; border-color: #167a68; height: 40px; }
+.execution { min-width: 0; }
+.canvas-heading { display: flex; justify-content: space-between; align-items: center; padding: 17px 24px; gap: 10px; }
+.canvas-heading h2 { margin: 0; }
+.canvas-heading span { font-size: 12px; color: #62747a; }
+.canvas-area { height: 360px; background: #eaf0ee; border-top: 1px solid #d9e2e1; border-bottom: 1px solid #d9e2e1; overflow: hidden; }
+.results { padding: 22px 24px 48px; max-width: 1000px; }
+.empty { color: #87979b; font-size: 13px; }
+.loading { display: flex; gap: 12px; align-items: center; color: #62747a; }
+.review { display: flex; align-items: center; gap: 12px; font-size: 13px; margin-bottom: 12px; }
+.feedback, .answer p, .task-result p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.feedback { color: #52646b; }
+.answer { border-left: 3px solid #268979; padding: 8px 16px; background: #f1f8f5; margin: 16px 0; }
+.answer h3 { font-size: 13px; margin: 0; }
+.answer p { margin-bottom: 0; }
+.task-result { border: 1px solid #d9e2e1; background: white; border-radius: 5px; padding: 14px 16px; margin-top: 10px; font-size: 13px; }
+.task-result div { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.task-result div span { color: #73858a; }
+.task-result .instruction { color: #687d83; margin: 8px 0; }
+.task-result p:last-child { margin-bottom: 0; }
+@media (max-width: 850px) { .workspace-body { display: block; } .configuration { max-height: none; border-right: 0; border-bottom: 1px solid #d9e2e1; } .canvas-area { height: 300px; } .canvas-heading { flex-wrap: wrap; } }
+@media (max-width: 420px) { .workspace-header { padding: 14px 16px; } .configuration, .results { padding-left: 16px; padding-right: 16px; } .agent-fields { grid-template-columns: 1fr; } .agent-fields label:nth-child(2), .agent-fields label:nth-child(4) { grid-column: auto; } }

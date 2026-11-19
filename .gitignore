@@ -1,0 +1,19 @@
+# Local credentials and recovery data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.acl-recovery/
+
+# Local dependencies and build output
+**/node_modules/
+**/.next/
+**/target/
+**/deploy/
+**/out/
+**/analyze.txt
+*.log
+
+# The platform includes a required prebuilt local library.
+!rsi-flow-platform/node_horsecoder/@horsecoder/flow/dist/
